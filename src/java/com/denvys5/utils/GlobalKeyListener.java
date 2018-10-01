@@ -9,13 +9,15 @@ import com.tulskiy.keymaster.common.Provider;
 
 public class GlobalKeyListener implements HotKeyListener {
 
+    public void actionOnEvent(){}
+
     @Override
     public void onHotKey(HotKey hotKey) {
         if(DenvysLib.allowSameHotkey){
             KeyThread keyThread = new KeyThread(hotKey);
             keyThread.start();
         }else{
-            DenvysLib.serialConnector.send(1,(byte)1, 2);
+            actionOnEvent();
             if(DenvysLib.debug) DenvysLogger.logger.info("The pressed key is " + hotKey.toString());
         }
     }
@@ -51,7 +53,7 @@ public class GlobalKeyListener implements HotKeyListener {
                 DenvysKeyListener.robot.keyPress(hotKey.keyStroke.getKeyCode());
                 DenvysKeyListener.robot.keyRelease(hotKey.keyStroke.getKeyCode());
                 DenvysKeyListener.provider.register(hotKey.keyStroke, GlobalKeyListener.this);
-                DenvysLib.serialConnector.send(1,(byte)1, 2);
+                actionOnEvent();
                 if (DenvysLib.debug) DenvysLogger.logger.debug("The key pressed " + hotKey);
             }else{
                 DenvysKeyListener.provider = Provider.getCurrentProvider(true);
