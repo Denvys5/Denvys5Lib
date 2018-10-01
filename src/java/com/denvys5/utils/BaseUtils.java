@@ -1,5 +1,6 @@
 package com.denvys5.utils;
 
+import com.denvys5.DefaultParameters;
 import com.denvys5.DenvysLib;
 
 import javax.imageio.ImageIO;
@@ -57,7 +58,7 @@ public class BaseUtils {
     }
 
     public static File getConfigName() {
-        if (DenvysLib.baseconf.equals("."))
+        if (DenvysLib.baseconf.equals(""))
             return new File(DenvysLib.baseconf + File.separator + DenvysLib.configName);
         String home = System.getProperty("user.home", "");
         String path = File.separator + DenvysLib.baseconf + File.separator + DenvysLib.configName;
@@ -80,11 +81,15 @@ public class BaseUtils {
     }
 
     public static String buildUrl(String s) {
-        return DenvysLib.http + DenvysLib.domain + "/" + DenvysLib.siteDir + "/" + s;
+        return DefaultParameters.http + DefaultParameters.domain + "/" + DefaultParameters.siteDir + "/" + s;
     }
 
     static {
         config.load();
+    }
+
+    public static boolean isSetProperty(String key){
+        return config.checkProperty(key);
     }
 
     public static void setProperty(String s, Object value) {
@@ -159,12 +164,12 @@ public class BaseUtils {
     }
 
     public static String getURLSc(String script) {
-        return getURL("/" + DenvysLib.siteDir + "/" + script);
+        return getURL("/" + DefaultParameters.siteDir + "/" + script);
     }
 
 
     public static String getURL(String path) {
-        return DenvysLib.http + DenvysLib.domain + path;
+        return DefaultParameters.http + DefaultParameters.domain + path;
     }
 
 

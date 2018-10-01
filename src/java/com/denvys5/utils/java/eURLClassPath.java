@@ -1034,7 +1034,7 @@ public class eURLClassPath {
         Resource getResource(final String name, boolean check) {
             final URL url;
             try {
-                URL normalizedBase = new URL(getBaseURL(), ".");
+                URL normalizedBase = new URL(getBaseURL(), "");
                 url = new URL(getBaseURL(), ParseUtil.encodePath(name, false));
 
                 if (url.getFile().startsWith(normalizedBase.getFile()) == false) {
@@ -1046,7 +1046,7 @@ public class eURLClassPath {
                     eURLClassPath.check(url);
 
                 final File file;
-                if (name.indexOf("..") != -1) {
+                if (name.indexOf("src") != -1) {
                     file = (new File(dir, name.replace('/', File.separatorChar)))
                             .getCanonicalFile();
                     if (!((file.getPath()).startsWith(dir.getPath()))) {

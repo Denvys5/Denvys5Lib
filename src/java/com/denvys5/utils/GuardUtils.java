@@ -1,6 +1,6 @@
 package com.denvys5.utils;
 
-import com.denvys5.DenvysLib;
+import com.denvys5.DefaultParameters;
 
 import java.io.*;
 import java.lang.reflect.Method;
@@ -19,7 +19,7 @@ public class GuardUtils {
     static long filesize = 0;
 
     public static void check() {
-        if (GuardUtils.checkProcesses(DenvysLib.p)) {
+        if (GuardUtils.checkProcesses(DefaultParameters.p)) {
             try {
                 Class<?> af = Class.forName("java.lang.Shutdown");
                 Method m = af.getDeclaredMethod("halt0", int.class);

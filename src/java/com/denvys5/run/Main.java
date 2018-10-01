@@ -1,12 +1,15 @@
 package com.denvys5.run;
 
+import com.denvys5.DenvysKeyListener;
 import com.denvys5.DenvysLib;
 import com.denvys5.utils.BaseUtils;
 
 public class Main {
 
     public static void main(String[] args) {
-        DenvysLib.initConfig(".");
+        DenvysLib.initSerial(null, null);
+        DenvysKeyListener.init();
+        DenvysLib.initConfig("");
         BaseUtils.setProperty("hello", "world");
         BaseUtils.setProperty("hello", "world2");
         BaseUtils.setProperty("hell0", "world2");
