@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         DenvysLib.initSerial(null, null);
         DenvysKeyListener.init();
-        DenvysLib.initConfig("");
+        DenvysLib.initConfig(".");
         BaseUtils.setProperty("hello", "world");
         BaseUtils.setProperty("hello", "world2");
         BaseUtils.setProperty("hell0", "world2");
