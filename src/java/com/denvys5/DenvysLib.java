@@ -21,7 +21,7 @@ public class DenvysLib implements DefaultParameters{
 
     public static void initConfig(String path, String filename) {
         if (path == null || path.isEmpty())
-            baseconf = "Desktop";
+            baseconf = System.getProperty("user.home");
         else
             baseconf = path;
         if (filename == null || filename.isEmpty())

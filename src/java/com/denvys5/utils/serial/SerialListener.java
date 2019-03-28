@@ -2,7 +2,6 @@ package com.denvys5.utils.serial;
 
 import com.denvys5.DefaultParameters;
 import com.denvys5.DenvysLib;
-import com.denvys5.DenvysLogger;
 import jssc.SerialPortList;
 
 import java.util.*;
@@ -31,7 +30,6 @@ public class SerialListener extends Thread {
             try {
                 Thread.sleep(DefaultParameters.waitForDevice/ DefaultParameters.waitForDeviceCycles);
             } catch (InterruptedException e) {
-                if(DenvysLib.debug) DenvysLogger.logger.warn("Sleep in SerialListener was interrupted");
             }
 
             ArrayList<String> currentPortList = new ArrayList<>();
@@ -45,7 +43,7 @@ public class SerialListener extends Thread {
             }
 
             if(currentPortList.size() > lastPortList.size() && !connected){
-                if(DenvysLib.debug) DenvysLogger.logger.info(currentPortList);
+                if(DenvysLib.debug) System.out.println(currentPortList);
 
                 ArrayList<String> temp = new ArrayList<>(currentPortList);
                 currentPortList.removeAll(lastPortList);

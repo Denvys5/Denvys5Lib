@@ -60,11 +60,8 @@ public class BaseUtils {
     public static File getConfigName() {
         if (DenvysLib.baseconf.equals("."))
             return new File(DenvysLib.baseconf + File.separator + DenvysLib.configName);
-        String home = System.getProperty("user.home", "");
         String path = File.separator + DenvysLib.baseconf + File.separator + DenvysLib.configName;
-//        if(Settings.baseconf.contains(".."))
-//            return new File(path);
-        return new File(home, path);
+        return new File(path);
     }
 
 

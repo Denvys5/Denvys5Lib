@@ -2,7 +2,6 @@ package com.denvys5.utils;
 
 import com.denvys5.DenvysKeyListener;
 import com.denvys5.DenvysLib;
-import com.denvys5.DenvysLogger;
 import com.tulskiy.keymaster.common.HotKey;
 import com.tulskiy.keymaster.common.HotKeyListener;
 import com.tulskiy.keymaster.common.Provider;
@@ -18,7 +17,7 @@ public class GlobalKeyListener implements HotKeyListener {
             keyThread.start();
         }else{
             actionOnEvent();
-            if(DenvysLib.debug) DenvysLogger.logger.info("The pressed key is " + hotKey.toString());
+            if(DenvysLib.debug) System.out.println("The pressed key is " + hotKey.toString());
         }
     }
 
@@ -54,7 +53,7 @@ public class GlobalKeyListener implements HotKeyListener {
                 DenvysKeyListener.robot.keyRelease(hotKey.keyStroke.getKeyCode());
                 DenvysKeyListener.provider.register(hotKey.keyStroke, GlobalKeyListener.this);
                 actionOnEvent();
-                if (DenvysLib.debug) DenvysLogger.logger.debug("The key pressed " + hotKey);
+                if (DenvysLib.debug) System.out.println("The key pressed " + hotKey);
             }else{
                 DenvysKeyListener.provider = Provider.getCurrentProvider(true);
                 DenvysKeyListener.provider.register(hotKey.keyStroke, GlobalKeyListener.this);
