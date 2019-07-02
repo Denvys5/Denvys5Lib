@@ -1,6 +1,6 @@
-package com.denvys5.utils.serial;
+package com.denvys5.utils;
 
-public class Utils {
+public class HexUtils {
     public static byte[] hexStringToByteArray(String s) {
         int len = s.length();
         byte[] data = new byte[len / 2];

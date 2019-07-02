@@ -2,12 +2,11 @@ package com.denvys5;
 
 import com.denvys5.utils.BaseUtils;
 
-public class DenvysLib implements DefaultParameters{
+public class Config implements DefaultParameters{
 
     public static String baseconf;
     public static String configName;
     public static boolean debug;
-
 
     public static void initConfig(String path, String filename) {
         if (path == null || path.isEmpty())

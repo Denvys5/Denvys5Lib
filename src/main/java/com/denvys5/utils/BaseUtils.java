@@ -1,7 +1,7 @@
 package com.denvys5.utils;
 
 import com.denvys5.DefaultParameters;
-import com.denvys5.DenvysLib;
+import com.denvys5.Config;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class BaseUtils {
     public static final String empty = "";
-    public static ConfigUtils config = new ConfigUtils(DenvysLib.configName, getConfigName());
+    public static ConfigUtils config = new ConfigUtils(Config.configName, getConfigName());
 
     public static Map<String, BufferedImage> imgs = new HashMap<String, BufferedImage>();
 
@@ -38,19 +38,19 @@ public class BaseUtils {
     }
 
     public static void send(String msg) {
-        if (DenvysLib.debug) System.out.println(date() + "[Launcher thread/INFO]: " + msg);
+        if (Config.debug) System.out.println(date() + "[Launcher thread/INFO]: " + msg);
     }
 
     public static void sendErr(String err) {
-        if (DenvysLib.debug) System.err.println(date() + "[Launcher thread/WARN]: " + err);
+        if (Config.debug) System.err.println(date() + "[Launcher thread/WARN]: " + err);
     }
 
     public static void sendp(String msg) {
-        if (DenvysLib.debug) System.out.println(msg);
+        if (Config.debug) System.out.println(msg);
     }
 
     public static void sendErrp(String err) {
-        if (DenvysLib.debug) System.err.println(err);
+        if (Config.debug) System.err.println(err);
     }
 
     public static boolean contains(int x, int y, int xx, int yy, int w, int h) {
@@ -58,9 +58,9 @@ public class BaseUtils {
     }
 
     public static File getConfigName() {
-        if (DenvysLib.baseconf.equals("."))
-            return new File(DenvysLib.baseconf + File.separator + DenvysLib.configName);
-        String path = File.separator + DenvysLib.baseconf + File.separator + DenvysLib.configName;
+        if (Config.baseconf.equals("."))
+            return new File(Config.baseconf + File.separator + Config.configName);
+        String path = File.separator + Config.baseconf + File.separator + Config.configName;
         return new File(path);
     }
 
