@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.denvys5</groupId>
-  <artifactId>Denvys5Lib</artifactId>
+  <artifactId>SimpleConfigLib</artifactId>
   <version>2.0</version>
 
   <name>SimpleConfigLib</name>
