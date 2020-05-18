@@ -11,7 +11,7 @@ public class ConfigTest {
     private Config config;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         String filename = "configuration.cfg";
         File file = new File(Utils.getRelativeFilepath() + filename);
         file.delete();
@@ -25,7 +25,7 @@ public class ConfigTest {
 
     @Test
     public void addPropertyString() {
-        String propertyName = "property A";
+        String propertyName = "property";
         String propertyDefault = "B";
         config.addPropertyString(propertyName, propertyDefault);
 
@@ -34,7 +34,7 @@ public class ConfigTest {
 
     @Test
     public void addPropertyBoolean() {
-        String propertyName = "property B";
+        String propertyName = "property";
         boolean propertyDefault = true;
         config.addPropertyBoolean(propertyName, propertyDefault);
 
@@ -43,7 +43,7 @@ public class ConfigTest {
 
     @Test
     public void addPropertyInt() {
-        String propertyName = "property C";
+        String propertyName = "property";
         int propertyDefault = 10;
         config.addPropertyInt(propertyName, propertyDefault);
 
@@ -52,7 +52,7 @@ public class ConfigTest {
 
     @Test
     public void addPropertyDouble() {
-        String propertyName = "property D";
+        String propertyName = "property";
         double propertyDefault = 10D;
         config.addPropertyDouble(propertyName, propertyDefault);
         assertTrue(Math.abs(propertyDefault - config.getPropertyDouble(propertyName)) < 0.001);
@@ -60,7 +60,7 @@ public class ConfigTest {
 
     @Test
     public void isSetProperty() {
-        String propertyName = "property F";
+        String propertyName = "property";
         double propertyDefault = 10D;
         config.addPropertyDouble(propertyName, propertyDefault);
         assertTrue(config.isSetProperty(propertyName));
@@ -68,7 +68,7 @@ public class ConfigTest {
 
     @Test
     public void setProperty() {
-        String propertyName = "property G";
+        String propertyName = "property";
         int propertyDefault = 10;
         config.setProperty(propertyName, propertyDefault);
 
@@ -83,7 +83,7 @@ public class ConfigTest {
 
     @Test
     public void getPropertyInt() {
-        String propertyName = "property H";
+        String propertyName = "property";
         int propertyDefault = 10;
         config.addPropertyInt(propertyName, propertyDefault);
 
@@ -92,7 +92,7 @@ public class ConfigTest {
 
     @Test
     public void testGetPropertyInt() {
-        String propertyName = "property I";
+        String propertyName = "property";
         int propertyDefault = 10;
 
         assertEquals(propertyDefault, config.getPropertyInt(propertyName, propertyDefault));
@@ -100,7 +100,7 @@ public class ConfigTest {
 
     @Test
     public void getPropertyBoolean() {
-        String propertyName = "property J";
+        String propertyName = "property";
         boolean propertyDefault = true;
         config.addPropertyBoolean(propertyName, propertyDefault);
 
@@ -109,7 +109,7 @@ public class ConfigTest {
 
     @Test
     public void testGetPropertyBoolean() {
-        String propertyName = "property K";
+        String propertyName = "property";
         boolean propertyDefault = true;
 
         assertEquals(propertyDefault, config.getPropertyBoolean(propertyName, propertyDefault));
@@ -117,7 +117,7 @@ public class ConfigTest {
 
     @Test
     public void getPropertyString() {
-        String propertyName = "property L";
+        String propertyName = "property";
         String propertyDefault = "true";
         config.addPropertyString(propertyName, propertyDefault);
 
@@ -126,7 +126,7 @@ public class ConfigTest {
 
     @Test
     public void testGetPropertyString() {
-        String propertyName = "property M";
+        String propertyName = "property";
         String propertyDefault = "true";
 
         assertEquals(propertyDefault, config.getPropertyString(propertyName, propertyDefault));
@@ -134,7 +134,7 @@ public class ConfigTest {
 
     @Test
     public void getPropertyDouble() {
-        String propertyName = "property L";
+        String propertyName = "property";
         double propertyDefault = 10D;
         config.addPropertyDouble(propertyName, propertyDefault);
 
@@ -143,7 +143,7 @@ public class ConfigTest {
 
     @Test
     public void testGetPropertyDouble() {
-        String propertyName = "property L";
+        String propertyName = "property";
         double propertyDefault = 10D;
 
         assertTrue(Math.abs(propertyDefault - config.getPropertyDouble(propertyName, propertyDefault)) < 0.001);
