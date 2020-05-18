@@ -15,8 +15,7 @@ class Config implements DefaultParameters{
         config = new ConfigUtils(fileName, getConfigName());
         config.load();
 
-        if(!isSetProperty(DEBUG_PROPERTY)) setProperty(DEBUG_PROPERTY, DEFAULT_DEBUG);
-        debug = getPropertyBoolean(DEBUG_PROPERTY);
+        debug = addPropertyBoolean(DEBUG_PROPERTY, DEFAULT_DEBUG);
     }
 
     public boolean isDebug() {
@@ -26,8 +25,43 @@ class Config implements DefaultParameters{
     public File getConfigName() {
         if (filePath.equals("."))
             return new File(filePath + File.separator + fileName);
-        String path = File.separator + filePath + File.separator + fileName;
-        return new File(path);
+        return new File(File.separator + filePath + File.separator + fileName);
+    }
+
+    public String addPropertyString(final String propertyName, final String defaultValue){
+        if(!isSetProperty(propertyName)) {
+            setProperty(propertyName, defaultValue);
+            return defaultValue;
+        }
+
+        return getPropertyString(propertyName);
+    }
+
+    public boolean addPropertyBoolean(final String propertyName, final boolean defaultValue){
+        if(!isSetProperty(propertyName)) {
+            setProperty(propertyName, defaultValue);
+            return defaultValue;
+        }
+
+        return getPropertyBoolean(propertyName);
+    }
+
+    public int addPropertyInt(final String propertyName, final int defaultValue){
+        if(!isSetProperty(propertyName)) {
+            setProperty(propertyName, defaultValue);
+            return defaultValue;
+        }
+
+        return getPropertyInt(propertyName);
+    }
+
+    public double addPropertyDouble(final String propertyName, final double defaultValue){
+        if(!isSetProperty(propertyName)) {
+            setProperty(propertyName, defaultValue);
+            return defaultValue;
+        }
+
+        return getPropertyDouble(propertyName);
     }
 
     public boolean isSetProperty(String key){
@@ -37,16 +71,6 @@ class Config implements DefaultParameters{
     public void setProperty(String s, Object value) {
         if (config.checkProperty(s)) config.changeProperty(s, value);
         else config.put(s, value);
-    }
-
-    public String getPropertyString(String s) {
-        if (config.checkProperty(s)) return config.getPropertyString(s);
-        return null;
-    }
-
-    public boolean getPropertyBoolean(String s) {
-        if (config.checkProperty(s)) return config.getPropertyBoolean(s);
-        return false;
     }
 
     public int getPropertyInt(String s) {
@@ -59,13 +83,33 @@ class Config implements DefaultParameters{
         return d;
     }
 
+    public boolean getPropertyBoolean(String s) {
+        if (config.checkProperty(s)) return config.getPropertyBoolean(s);
+        return false;
+    }
+
     public boolean getPropertyBoolean(String s, boolean b) {
         if (config.checkProperty(s)) return config.getPropertyBoolean(s);
         return b;
     }
 
+    public String getPropertyString(String s) {
+        if (config.checkProperty(s)) return config.getPropertyString(s);
+        return null;
+    }
+
     public String getPropertyString(String s, String str) {
         if (config.checkProperty(s)) return config.getPropertyString(s);
         return str;
+    }
+
+    public double getPropertyDouble(String s){
+        if (config.checkProperty(s)) return config.getPropertyDouble(s);
+        return 0D;
+    }
+
+    public double getPropertyDouble(String s, double d) {
+        if (config.checkProperty(s)) return config.getPropertyDouble(s);
+        return d;
     }
 }

@@ -6,6 +6,6 @@ public class ConfigFactory {
     }
 
     public static Config getConfig(String filename){
-        return new Config(Utils.getRelativeFilepath(), filename);
+        return getConfig(Utils.getRelativeFilepath(), filename);
     }
 }
