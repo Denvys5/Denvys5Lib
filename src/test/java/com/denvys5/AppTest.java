@@ -5,12 +5,17 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
+
 public class AppTest {
     private Config config;
 
     @Before
     public void setup(){
-        config = ConfigFactory.getConfig("settings.cfg");
+        String filename = "settings.cfg";
+        File file = new File(Utils.getRelativeFilepath() + filename);
+        file.delete();
+        config = ConfigFactory.getConfig(filename);
     }
 
     @Test

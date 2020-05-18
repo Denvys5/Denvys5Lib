@@ -18,50 +18,50 @@ class Config implements DefaultParameters{
         debug = addPropertyBoolean(DEBUG_PROPERTY, DEFAULT_DEBUG);
     }
 
-    public boolean isDebug() {
-        return debug;
-    }
-
-    public File getConfigName() {
+    private File getConfigName() {
         if (filePath.equals("."))
             return new File(filePath + File.separator + fileName);
         return new File(File.separator + filePath + File.separator + fileName);
     }
 
+    public boolean isDebug() {
+        return debug;
+    }
+
     public String addPropertyString(final String propertyName, final String defaultValue){
-        if(!isSetProperty(propertyName)) {
-            setProperty(propertyName, defaultValue);
+        if(!config.checkProperty(propertyName)) {
+            config.put(propertyName, defaultValue);
             return defaultValue;
         }
 
-        return getPropertyString(propertyName);
+        return config.getPropertyString(propertyName);
     }
 
     public boolean addPropertyBoolean(final String propertyName, final boolean defaultValue){
-        if(!isSetProperty(propertyName)) {
-            setProperty(propertyName, defaultValue);
+        if(!config.checkProperty(propertyName)) {
+            config.put(propertyName, defaultValue);
             return defaultValue;
         }
 
-        return getPropertyBoolean(propertyName);
+        return config.getPropertyBoolean(propertyName);
     }
 
     public int addPropertyInt(final String propertyName, final int defaultValue){
-        if(!isSetProperty(propertyName)) {
-            setProperty(propertyName, defaultValue);
+        if(!config.checkProperty(propertyName)) {
+            config.put(propertyName, defaultValue);
             return defaultValue;
         }
 
-        return getPropertyInt(propertyName);
+        return config.getPropertyInteger(propertyName);
     }
 
     public double addPropertyDouble(final String propertyName, final double defaultValue){
-        if(!isSetProperty(propertyName)) {
-            setProperty(propertyName, defaultValue);
+        if(!config.checkProperty(propertyName)) {
+            config.put(propertyName, defaultValue);
             return defaultValue;
         }
 
-        return getPropertyDouble(propertyName);
+        return config.getPropertyDouble(propertyName);
     }
 
     public boolean isSetProperty(String key){
