@@ -2,21 +2,27 @@ package com.denvys5;
 
 import static org.junit.Assert.assertEquals;
 
-import com.denvys5.utils.BaseUtils;
+import org.junit.Before;
 import org.junit.Test;
 
 public class AppTest {
+    private Config config;
+
+    @Before
+    public void setup(){
+        config = ConfigFactory.getConfig("settings.cfg");
+    }
+
     @Test
     public void checkConfig(){
-        Config.initConfig(".");
-        BaseUtils.setProperty("hello", "world");
-        BaseUtils.setProperty("hello", "world2");
-        BaseUtils.setProperty("hell0", "world2");
-        BaseUtils.setProperty("hEllo", "world3");
-        BaseUtils.setProperty("123", 129);
+        config.setProperty("hello", "world");
+        config.setProperty("hello", "world2");
+        config.setProperty("hell0", "world2");
+        config.setProperty("hEllo", "world3");
+        config.setProperty("123", 129);
 
-        assertEquals(130, BaseUtils.getPropertyInt("124", 130));
-        assertEquals(129, BaseUtils.getPropertyInt("123", 130));
-        assertEquals("world3", BaseUtils.getPropertyString("hEllo"));
+        assertEquals(130, config.getPropertyInt("124", 130));
+        assertEquals(129, config.getPropertyInt("123", 130));
+        assertEquals("world3", config.getPropertyString("hEllo"));
     }
 }

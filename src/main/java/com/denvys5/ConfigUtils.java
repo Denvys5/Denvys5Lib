@@ -1,9 +1,9 @@
-package com.denvys5.utils;
+package com.denvys5;
 
 import java.io.*;
 import java.util.HashMap;
 
-public class ConfigUtils {
+class ConfigUtils {
     private File out;
     private Boolean cached = false;
     private String filename = null;
@@ -239,7 +239,9 @@ public class ConfigUtils {
                 result.put(i, line);
                 i++;
             }
-        } catch (Exception ex) {
+        } catch (FileNotFoundException e){
+            System.out.println("Configuration file " + out.getName() + " was not found. Creating one.");
+        }catch (Exception ex) {
             ex.printStackTrace();
         } finally {
             try {

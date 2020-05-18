@@ -1,6 +1,7 @@
 package com.denvys5;
 
-public interface DefaultParameters {
+interface DefaultParameters {
     boolean DEFAULT_DEBUG = false;
     String DEBUG_PROPERTY = "debug";
+    String DEFAULT_FILENAME = "settings.cfg";
 }
