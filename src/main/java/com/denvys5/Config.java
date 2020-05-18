@@ -2,7 +2,7 @@ package com.denvys5;
 
 import java.io.File;
 
-class Config implements DefaultParameters{
+public class Config implements DefaultParameters{
     private boolean debug;
     private final String fileName;
     private final String filePath;
