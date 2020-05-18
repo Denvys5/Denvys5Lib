@@ -8,7 +8,7 @@ public class Config implements DefaultParameters{
     private final String filePath;
     private final ConfigUtils config;
 
-    public Config(String filePath, String fileName) {
+    Config(String filePath, String fileName) {
         this.fileName = fileName;
         this.filePath = filePath;
 
