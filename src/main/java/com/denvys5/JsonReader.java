@@ -9,8 +9,8 @@ import java.nio.charset.StandardCharsets;
 public class JsonReader {
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public static Object getObject(String filepath, Class<?> target){
-         return gson.fromJson(readFile(filepath), target);
+    public static <T> T getObject(String filepath, Class<T> target){
+        return gson.fromJson(readFile(filepath), target);
     }
 
 

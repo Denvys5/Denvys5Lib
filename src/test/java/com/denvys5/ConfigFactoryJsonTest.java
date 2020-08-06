@@ -2,6 +2,7 @@ package com.denvys5;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runners.model.TestClass;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class ConfigFactoryJsonTest {
     public void readAndSaveJsonObjectWithRelativeFilePath() {
         ConfigFactory.saveJsonObjectWithRelativeFilePath(filename, testJson);
 
-        TestJson readJson = (TestJson) ConfigFactory.getJsonObjectWithRelativeFilePath(filename, TestJson.class);
+        TestJson readJson = ConfigFactory.getJsonObjectWithRelativeFilePath(filename, TestJson.class);
         System.out.println(readJson);
         assertEquals(testJson, readJson);
     }
@@ -65,7 +66,7 @@ public class ConfigFactoryJsonTest {
     public void readAndSaveJsonObject() {
         ConfigFactory.saveJsonObject(Utils.getRelativeFilepath()+filename, testJson);
 
-        TestJson readJson = (TestJson) ConfigFactory.getJsonObject(Utils.getRelativeFilepath()+filename, TestJson.class);
+        TestJson readJson = ConfigFactory.getJsonObject(Utils.getRelativeFilepath()+filename, TestJson.class);
         System.out.println(readJson);
         assertEquals(testJson, readJson);
     }

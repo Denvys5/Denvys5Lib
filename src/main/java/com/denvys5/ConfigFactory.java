@@ -18,11 +18,11 @@ public class ConfigFactory implements DefaultParameters{
     }
 
 
-    public static Object getJsonObject(String absolutePath, Class<?> target){
+    public static <T> T getJsonObject(String absolutePath, Class<T> target){
         return JsonReader.getObject(absolutePath, target);
     }
 
-    public static Object getJsonObjectWithRelativeFilePath(String relativePath, Class<?> target){
+    public static <T> T getJsonObjectWithRelativeFilePath(String relativePath, Class<T> target){
         return JsonReader.getObject(Utils.getRelativeFilepath()+relativePath, target);
     }
 
