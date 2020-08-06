@@ -43,54 +43,11 @@ class ConfigUtils {
 
     private void create(String filename) {
         InputStream input = getClass().getResourceAsStream(filename);
-        if (input != null) {
-            FileOutputStream output = null;
-            try {
-                out.getParentFile().mkdirs();
-                output = new FileOutputStream(out);
-                byte[] buf = new byte[8192];
-                int length;
-                while ((length = input.read(buf)) > 0) {
-                    output.write(buf, 0, length);
-                }
-            } catch (Exception e) {
-            } finally {
-                try {
-                    input.close();
-                } catch (Exception ignored) {
-                }
-                try {
-                    if (output != null)
-                        output.close();
-                } catch (Exception ignored) {
-                }
-            }
-        }
+        Utils.writeToFile(input, out);
     }
 
     private void create(InputStream input) {
-        if (input != null) {
-            FileOutputStream output = null;
-            try {
-                output = new FileOutputStream(out);
-                byte[] buf = new byte[8192];
-                int length;
-                while ((length = input.read(buf)) > 0) {
-                    output.write(buf, 0, length);
-                }
-            } catch (Exception e) {
-            } finally {
-                try {
-                    input.close();
-                } catch (Exception ignored) {
-                }
-                try {
-                    if (output != null)
-                        output.close();
-                } catch (Exception ignored) {
-                }
-            }
-        }
+        Utils.writeToFile(input, out);
     }
 
     private HashMap<String, String> loadHashMap() {

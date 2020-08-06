@@ -12,16 +12,10 @@ public class Config implements DefaultParameters{
         this.fileName = fileName;
         this.filePath = filePath;
 
-        config = new ConfigUtils(fileName, getConfigName());
+        config = new ConfigUtils(fileName, Utils.getFile(filePath, fileName));
         config.load();
 
         debug = addPropertyBoolean(DEBUG_PROPERTY, DEFAULT_DEBUG);
-    }
-
-    private File getConfigName() {
-        if (filePath.equals("."))
-            return new File(filePath + File.separator + fileName);
-        return new File(File.separator + filePath + File.separator + fileName);
     }
 
     public boolean isDebug() {
