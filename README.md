@@ -14,6 +14,27 @@ Add configurable variable. This will load value from config, if it exists. And i
 String <variable> = config.addPropertyString(String <propertyName>, String <propertyDefault>);
 ```
 
+
+## Maven
+
+```xml
+  <repositories>
+    <repository>
+      <id>github</id>
+      <name>GitHub Denvys5 Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/Denvys5/SimpleConfigLib</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.denvys5</groupId>
+      <artifactId>simpleconfiglib</artifactId>
+      <version>LATEST</version>
+    </dependency>
+  </dependencies>
+```
+
 ## NEW!
 Added support for JSON based configuration! 
 Now, you can save and read JSONs from files.
