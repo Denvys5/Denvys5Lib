@@ -34,8 +34,8 @@
     </repository>
     <repository>
       <id>github</id>
-      <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+      <name>GitHub Denvys5 Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/Denvys5/SimpleConfigLib</url>
     </repository>
   </repositories>
 
