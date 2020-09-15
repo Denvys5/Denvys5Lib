@@ -17,6 +17,11 @@
 
 package com.denvys5;
 
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
+
+import java.io.FileNotFoundException;
+
 public class ConfigFactory implements DefaultParameters{
     public static Config getConfig(String absolutePath, String filename){
         return new Config(absolutePath, filename);
@@ -34,12 +39,11 @@ public class ConfigFactory implements DefaultParameters{
         return getConfig(Utils.getRelativeFilepath() + relativePath, filename);
     }
 
-
-    public static <T> T getJsonObject(String absolutePath, Class<T> target){
+    public static <T> T getJsonObject(String absolutePath, Class<T> target) throws FileNotFoundException, JsonSyntaxException, JsonIOException {
         return JsonReader.getObject(absolutePath, target);
     }
 
-    public static <T> T getJsonObjectWithRelativeFilePath(String relativePath, Class<T> target){
+    public static <T> T getJsonObjectWithRelativeFilePath(String relativePath, Class<T> target) throws FileNotFoundException, JsonSyntaxException, JsonIOException {
         return JsonReader.getObject(Utils.getRelativeFilepath()+relativePath, target);
     }
 

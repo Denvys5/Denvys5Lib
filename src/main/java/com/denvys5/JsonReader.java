@@ -19,6 +19,8 @@ package com.denvys5;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -26,7 +28,7 @@ import java.nio.charset.StandardCharsets;
 public class JsonReader {
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public static <T> T getObject(String filepath, Class<T> target){
+    public static <T> T getObject(String filepath, Class<T> target) throws FileNotFoundException, JsonSyntaxException, JsonIOException {
         return gson.fromJson(readFile(filepath), target);
     }
 
@@ -37,26 +39,17 @@ public class JsonReader {
         Utils.writeToFile(input, out);
     }
 
-    public static String readFile(String filePath){
+    public static String readFile(String filePath) throws FileNotFoundException {
         StringBuilder contentBuilder = new StringBuilder();
 
-        InputStream in = null;
-        try {
-            in = new FileInputStream(filePath);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        InputStream in = new FileInputStream(filePath);
         BufferedReader reader;
-        if (in != null) {
-            reader = new BufferedReader(new InputStreamReader(in));
-            reader.lines().forEach(s -> contentBuilder.append(s).append("\n"));
-            try {
-                in.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }else{
-            System.err.println("Json file not found!");
+        reader = new BufferedReader(new InputStreamReader(in));
+        reader.lines().forEach(s -> contentBuilder.append(s).append("\n"));
+        try {
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return contentBuilder.toString();

@@ -19,9 +19,9 @@ package com.denvys5;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runners.model.TestClass;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -71,7 +71,7 @@ public class ConfigFactoryJsonTest {
     }
 
     @Test
-    public void readAndSaveJsonObjectWithRelativeFilePath() {
+    public void readAndSaveJsonObjectWithRelativeFilePath() throws FileNotFoundException {
         ConfigFactory.saveJsonObjectWithRelativeFilePath(filename, testJson);
 
         TestJson readJson = ConfigFactory.getJsonObjectWithRelativeFilePath(filename, TestJson.class);
@@ -80,7 +80,7 @@ public class ConfigFactoryJsonTest {
     }
 
     @Test
-    public void readAndSaveJsonObject() {
+    public void readAndSaveJsonObject() throws FileNotFoundException {
         ConfigFactory.saveJsonObject(Utils.getRelativeFilepath()+filename, testJson);
 
         TestJson readJson = ConfigFactory.getJsonObject(Utils.getRelativeFilepath()+filename, TestJson.class);

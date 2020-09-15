@@ -20,12 +20,14 @@ package com.denvys5;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Optional;
 
 class Utils {
     public static String getRelativeFilepath(){
-        Optional<String> optionalPath = Optional.of(ClassLoader.getSystemClassLoader().getResource(".").getPath());
-        return optionalPath.orElse(".");
+        Optional<URL> optionalPath = Optional.ofNullable(Utils.class.getResource("."));
+        if(optionalPath.isPresent()) return optionalPath.get().getPath();
+        else return ".";
     }
 
     public static File getFile(String filePath, String fileName) {
@@ -45,7 +47,7 @@ class Utils {
                 while ((length = input.read(buf)) > 0) {
                     output.write(buf, 0, length);
                 }
-            } catch (Exception e) {
+            } catch (Exception ignored) {
             } finally {
                 try {
                     input.close();

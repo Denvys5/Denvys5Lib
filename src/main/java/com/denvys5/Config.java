@@ -1,5 +1,3 @@
-
-
 /*
  *  Copyright (C) 2020  Denys Vysoven
  *
