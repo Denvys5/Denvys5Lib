@@ -27,7 +27,7 @@ class Utils {
     public static String getRelativeFilepath(){
         Optional<URL> optionalPath = Optional.ofNullable(Utils.class.getResource("."));
         if(optionalPath.isPresent()) return optionalPath.get().getPath();
-        else return ".";
+        else return "./";
     }
 
     public static File getFile(String filePath, String fileName) {
