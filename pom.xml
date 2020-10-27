@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.denvys5</groupId>
-  <artifactId>SimpleConfigLib</artifactId>
+  <artifactId>simple-config-lib</artifactId>
   <version>2.3</version>
 
   <name>SimpleConfigLib</name>
@@ -13,31 +13,16 @@
   <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.release>8</maven.compiler.release>
   </properties>
 
   <distributionManagement>
     <repository>
-      <id>github</id>
-      <name>GitHub Denvys5 Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/Denvys5/SimpleConfigLib</url>
+      <id>central</id>
+      <name>a0k63gidawxoy-artifactory-primary-0-releases</name>
+      <url>https://sefl.jfrog.io/artifactory/libs-release</url>
     </repository>
   </distributionManagement>
-
-  <repositories>
-    <repository>
-      <id>central</id>
-      <url>https://repo1.maven.org/maven2</url>
-      <releases><enabled>true</enabled></releases>
-      <snapshots><enabled>true</enabled></snapshots>
-    </repository>
-    <repository>
-      <id>github</id>
-      <name>GitHub Denvys5 Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/Denvys5/SimpleConfigLib</url>
-    </repository>
-  </repositories>
 
   <dependencies>
     <dependency>
