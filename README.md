@@ -1,5 +1,8 @@
 # SimpleConfigLib
 
+#Github page is officially dead!
+#Migrated project to https://gitlab.com/Denvys5/SimpleConfigLib
+
 Simple library to create configuration files for your software
 
 Usage:
