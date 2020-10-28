@@ -19,8 +19,8 @@
   <distributionManagement>
     <repository>
       <id>central</id>
-      <name>a0k63gidawxoy-artifactory-primary-0-releases</name>
-      <url>https://sefl.jfrog.io/artifactory/libs-release</url>
+      <name>a0melmaqsgs9e-artifactory-primary-0-releases</name>
+      <url>https://denvys5.jfrog.io/artifactory/libs-release</url>
     </repository>
   </distributionManagement>
 
